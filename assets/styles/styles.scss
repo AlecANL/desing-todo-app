@@ -1,13 +1,3 @@
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  font-size: 62.5%;
-}
 :root {
   --bg-color: hsl(190, 96%, 61%);
   --bg-color-todo: hsl(225, 12%, 25%);
@@ -15,6 +5,41 @@ html {
   --color-white: hsl(0, 0%, 100%);
   --color-gray-light: hsl(220, 4%, 54%);
 }
+$devMode: false;
+$breakpoints: (
+  s: 460px,
+  m: 760px,
+  sm: 860px,
+  l: 980px,
+  x: 1024px,
+  xl: 1200px,
+);
+@mixin from($bp) {
+  @if (map-has-key($breakpoints, $bp)) {
+    @media screen and (min-width: map-get($breakpoints, $bp )) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $bp) {
+      @content;
+    }
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  @if ($devMode == true) {
+    border: 1px solid #fff;
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   background-color: var(--bg-color);
   font-family: 'Poppins', sans-serif;
@@ -38,11 +63,22 @@ body {
 }
 .todo-header {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  @include from(s) {
+    display: flex;
+    justify-content: space-between;
+  }
   padding: 2rem;
 }
 
 .display-data {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  @include from(l) {
+    display: block;
+    width: 50%;
+  }
   > h1 {
     color: var(--color-white);
     font-size: 2rem;
@@ -51,11 +87,16 @@ body {
   > p {
     color: var(--bg-color);
     font-size: 1.5rem;
+    font-weight: bold;
     padding: 1rem;
   }
 }
 .nav-tasks {
   font-size: 2rem;
+  width: 100%;
+  @include from(l) {
+    width: 35%;
+  }
   &__list {
     display: flex;
     list-style: none;
@@ -82,19 +123,34 @@ body {
   border-radius: 0.5rem;
   font-size: 1.7rem;
   padding: 2rem;
-  width: 25vw;
+  outline: none;
+  width: 100%;
+  @include from(l) {
+    width: 40%;
+  }
 }
 .btn {
   background-color: #000;
   border: none;
   border-radius: 0.5rem;
+  cursor: pointer;
   padding: 2rem 3rem;
+  outline: none;
+  width: 100%;
+  @include from(l) {
+    width: 15%;
+    margin-left: 1rem;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
 }
 .btn--primary {
   background-color: var(--bg-color);
   color: var(--color-white);
   font-size: 1.7rem;
-  margin-left: 1rem;
+  margin-top: 1rem;
+  //   margin-left: 1rem;
 }
 /* Tasks  Section*/
 .tasks-section {
@@ -112,6 +168,7 @@ body {
   padding: 2rem;
 }
 .name-task {
+  align-items: center;
   display: flex;
   margin-left: 1rem;
   > p {
@@ -121,4 +178,9 @@ body {
 /* Logos */
 .logo-delete {
   margin-right: 2rem;
+}
+i {
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--color-gray-light);
 }

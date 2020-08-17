@@ -1,3 +1,11 @@
+:root {
+  --bg-color: hsl(190, 96%, 61%);
+  --bg-color-todo: hsl(225, 12%, 25%);
+  --color-gray: hsl(223, 8%, 36%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-gray-light: hsl(220, 4%, 54%);
+}
+
 *,
 *::before,
 *::after {
@@ -9,14 +17,6 @@
 
 html {
   font-size: 62.5%;
-}
-
-:root {
-  --bg-color: hsl(190, 96%, 61%);
-  --bg-color-todo: hsl(225, 12%, 25%);
-  --color-gray: hsl(223, 8%, 36%);
-  --color-white: hsl(0, 0%, 100%);
-  --color-gray-light: hsl(220, 4%, 54%);
 }
 
 body {
@@ -52,10 +52,37 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 2rem;
+}
+
+@media screen and (min-width: 460px) {
+  .todo-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.display-data {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 2rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 980px) {
+  .display-data {
+    display: block;
+    width: 50%;
+  }
 }
 
 .display-data > h1 {
@@ -67,11 +94,19 @@ body {
 .display-data > p {
   color: var(--bg-color);
   font-size: 1.5rem;
+  font-weight: bold;
   padding: 1rem;
 }
 
 .nav-tasks {
   font-size: 2rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 980px) {
+  .nav-tasks {
+    width: 35%;
+  }
 }
 
 .nav-tasks__list {
@@ -105,21 +140,43 @@ body {
   border-radius: 0.5rem;
   font-size: 1.7rem;
   padding: 2rem;
-  width: 25vw;
+  outline: none;
+  width: 100%;
+}
+
+@media screen and (min-width: 980px) {
+  .form-control {
+    width: 40%;
+  }
 }
 
 .btn {
   background-color: #000;
   border: none;
   border-radius: 0.5rem;
+  cursor: pointer;
   padding: 2rem 3rem;
+  outline: none;
+  width: 100%;
+}
+
+@media screen and (min-width: 980px) {
+  .btn {
+    width: 15%;
+    margin-left: 1rem;
+  }
+}
+
+.btn:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .btn--primary {
   background-color: var(--bg-color);
   color: var(--color-white);
   font-size: 1.7rem;
-  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 /* Tasks  Section*/
@@ -146,6 +203,9 @@ body {
 }
 
 .name-task {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,5 +219,11 @@ body {
 /* Logos */
 .logo-delete {
   margin-right: 2rem;
+}
+
+i {
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--color-gray-light);
 }
 /*# sourceMappingURL=styles.css.map */
