@@ -1,0 +1,124 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+:root {
+  --bg-color: hsl(190, 96%, 61%);
+  --bg-color-todo: hsl(225, 12%, 25%);
+  --color-gray: hsl(223, 8%, 36%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-gray-light: hsl(220, 4%, 54%);
+}
+body {
+  background-color: var(--bg-color);
+  font-family: 'Poppins', sans-serif;
+}
+.l-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.main-section {
+  align-items: center;
+  display: flex;
+  justify-items: center;
+  min-height: 100vh;
+}
+.todo-tab {
+  background-color: var(--bg-color-todo);
+  border-radius: 0.5rem;
+  min-height: 80vh;
+  padding: 1rem;
+  width: 100%;
+}
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.display-data {
+  > h1 {
+    color: var(--color-white);
+    font-size: 2rem;
+    padding: 1rem;
+  }
+  > p {
+    color: var(--bg-color);
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+}
+.nav-tasks {
+  font-size: 2rem;
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 1rem;
+  }
+  &__link {
+    text-decoration: none;
+    color: var(--color-gray-light);
+    padding: 1rem;
+  }
+}
+.active {
+  color: var(--color-white);
+}
+.form-section {
+  //   background-color: cornflowerblue;
+  padding: 1rem;
+}
+.form-group {
+  padding: 1rem;
+}
+.form-control {
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.7rem;
+  padding: 2rem;
+  width: 25vw;
+}
+.btn {
+  background-color: #000;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 2rem 3rem;
+}
+.btn--primary {
+  background-color: var(--bg-color);
+  color: var(--color-white);
+  font-size: 1.7rem;
+  margin-left: 1rem;
+}
+/* Tasks  Section*/
+.tasks-section {
+  font-size: 1.7rem;
+  padding: 2rem;
+  color: var(--color-white);
+  margin-top: 2rem;
+}
+.task {
+  align-items: center;
+  border-top: 1px solid #fff;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem;
+  padding: 2rem;
+}
+.name-task {
+  display: flex;
+  margin-left: 1rem;
+  > p {
+    margin-left: 1rem;
+  }
+}
+/* Logos */
+.logo-delete {
+  margin-right: 2rem;
+}

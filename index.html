@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <title>TodoApp</title>
+  </head>
+  <body>
+    <div class="l-container">
+      <section class="main-section">
+        <div class="todo-tab">
+          <header class="todo-header">
+            <div class="display-data">
+              <h1>Saturday, June 1</h1>
+              <p>3 Active Tasks</p>
+            </div>
+            <nav class="nav-tasks">
+              <ul class="nav-tasks__list">
+                <li class="nav-tasks__item">
+                  <a href="#" class="nav-tasks__link active">Incomplete Tasks</a>
+                </li>
+                <li class="nav-tasks__item">
+                  <a href="#" class="nav-tasks__link">Complete Tasks</a>
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <main class="form-section">
+            <div class="form-group">
+              <input type="text" placeholder="Enter a task..." class="form-control" />
+              <button class="btn btn--primary">Add Task</button>
+            </div>
+            <section class="tasks-section">
+              <div class="task">
+                <div class="name-task">
+                  <div class="logo">Check</div>
+                  <p>Client metting @ 2:30pm</p>
+                </div>
+                <div class="logo-delete">
+                  delete
+                </div>
+              </div>
+              <div class="task">
+                <div class="name-task">
+                  <div class="logo">Check</div>
+                  <p>Learn Node.js</p>
+                </div>
+                <div class="logo-delete">
+                  delete
+                </div>
+              </div>
+              <div class="task">
+                <div class="name-task">
+                  <div class="logo">Check</div>
+                  <p>CDesing app interface</p>
+                </div>
+
+                <div class="logo-delete">
+                  delete
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
